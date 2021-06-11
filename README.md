@@ -10,8 +10,7 @@ Version Béta reste à faire :
 -	Ajout de drapeaux : « Vitesse Atteinte », « Position Atteinte », « vitesse zéro »..
 -	Améliorer la stabilité des pulses à vitesse élevée. ( l'irregularité des step peut générer des bruits un peu bizzares mais n'a pas d'importance sur le fonctionnement en lui même)
 -	….
-Installation :
--	Copier StepperIndexer.h et StepperIndexer.cpp dans le dossier « Documents\Arduino\libraries\StepperIndexer »
+
 Usage :
 -	StepperSetupHardWare() : 
 Doit être appelé dans Setup pour initialiser l’interruption timer.
@@ -42,13 +41,17 @@ Sketch ARDUINO Stepper indexer démo :
 Moniteur sur Port série : 38400,8,N,1
 
 « a » -> rotation  en positif à 1000 Step/s,
+
 « b » -> rotation en négatif à 12000 Step/s,
+
 « r » -> retour à la position 0 à 10000 Step/s,
+
 « t» -> déplacement à la position 60000 à 8000 Step/s.
+
 « z » -> Stop
 
 
-Sur le moniteur arduino penser a faire « Enter » a chaque commande.
+Sur le moniteur arduino, penser a faire « Enter » après chaque commande.
 
 
     
