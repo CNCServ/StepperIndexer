@@ -18,10 +18,10 @@ int32_t cptmes3;
  
 void setup() {
  
-  Serial.begin(115200, SERIAL_8N1 );
+  Serial.begin(38400, SERIAL_8N1 );
 
  StepperSetupHardWare();
-MyStepper.SetAccel(60000);
+MyStepper.SetAccel(30000);
   establishContact();  // send a byte to establish contact until receiver responds
 }
 

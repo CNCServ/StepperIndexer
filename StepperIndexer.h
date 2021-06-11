@@ -18,12 +18,12 @@ class TStepperIndexer
     int32_t Position;    // position du moteur, peut être lu et écrit.
     
     TStepperIndexer(int8_t pin_Step, int8_t pin_Dir);
-    int32_t GetTest();
+   // int32_t GetTest();
     void GoToTarget(int32_t Target,uint16_t Speed);
     void SetSpeed(int16_t Speed);
     void SetAccel(uint16_t Accel);
     void Interrupt();
- // private:
+  private:
     uint32_t _Accel;       // acceleration par cycle 
     int8_t Stade;    // il y a 2 étapes dans l'interruption, une pour generer le pulse en sortie et une pour le remettre a zéro.
                       // les calcul sont réparti sur les 2 étapes
