@@ -4,6 +4,7 @@
 int HardWareInit = 0;    // indique que le timer a bien été initialisé
 TStepperIndexer *StepperInstance[5];
 int NbInstance = 0;  
+int CptInstance = 0;
 int32_t cptmes=0;
 int32_t Speed_Max=12000;
 TStepperIndexer::TStepperIndexer(int8_t pin_Step, int8_t pin_Dir) // constructeur
@@ -22,10 +23,7 @@ TStepperIndexer::TStepperIndexer(int8_t pin_Step, int8_t pin_Dir) // constructeu
     
     
 }
-int32_t TStepperIndexer::GetTest() 
-{
-  return  cptmes;
-}
+
 void TStepperIndexer::GoToTarget(int32_t Target,uint16_t Speed)
 {
    
@@ -190,8 +188,10 @@ void StepperSetupHardWare()
 ISR(TIMER1_COMPA_vect)          // timer compare interrupt service routine
 {
   //PORTB = B0000001;
-  cptmes++;
-  StepperInstance[0]->Interrupt();
+  CptInstance++;
+  if ( CptInstance >= NbInstance)
+    CptInstance = 0;
+  StepperInstance[CptInstance]->Interrupt();
 //  PORTB = B0000000;
 
 }      
