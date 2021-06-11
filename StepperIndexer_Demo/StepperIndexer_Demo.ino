@@ -9,7 +9,7 @@
 //  version: V1.0
 // Auteur: Christian TROUILLET
 
-// NE PAS MODIFIER SVP
+
 
 int32_t cptmes2;
 int32_t cptmes3;
