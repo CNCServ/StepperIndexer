@@ -16,7 +16,8 @@ class TStepperIndexer
 {
   public:
     int32_t Position;    // position du moteur, peut être lu et écrit.
-    
+    uint8_t TargetAtteined; //la position cible est atteinte
+    uint8_t  SpeedZero; // le moteur est a l'arrêt
     TStepperIndexer(int8_t pin_Step, int8_t pin_Dir);
    // int32_t GetTest();
     void GoToTarget(int32_t Target,uint16_t Speed);
@@ -40,9 +41,10 @@ class TStepperIndexer
     float FSpeed;            // vitesse en flottant en step par cycle, donc toujours <= à 1 , elle est ensuite élevée au ²
     float FAccel_div2;       // = 0.5a
     float VMax;              // vitesse maximum au ² calculée en fonction de la distance restante -> D * 0.5 * a
-    int8_t _pin_Dir;           // pin de pour la sortie Dir entre 8 et 13
-    
-    int8_t _pin_Step;          // pin de pour la sortie Step entre 8 et 13
+    uint8_t _pin_Step;          // pin de pour la sortie Step entre 8 et 13
+    uint8_t _pin_Dir;          // pin de pour la sortie Step entre 8 et 13
+    volatile uint8_t *_out_Step;  
+    volatile uint8_t *_out_Dir;        
 };    
     
 #endif
